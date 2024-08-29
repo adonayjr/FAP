@@ -12,7 +12,16 @@ class ContaCorrente(ContaBancaria):
         '''
         Essa função é para sacar o valor que ta na variavel tal...
         '''
-        if valor < self._ContaBancaria__saldo + self.limite:
-            self._ContaBancaria__saldo -= valor
-            return True
+        # if valor < self._ContaBancaria__saldo + self.limite:
+        #     self._ContaBancaria__saldo -= valor
+        #     return True
+        # return False
+
+        if isinstance(valor, int):
+            if valor < 0:
+                return False
+            if valor < self._ContaBancaria__saldo + self.limite:
+                self._ContaBancaria__saldo -= valor
+                return True
+            return False
         return False
